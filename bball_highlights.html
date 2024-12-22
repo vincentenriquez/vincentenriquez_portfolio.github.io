@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible"="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css" integrity="sha512-9xKTRVabjVeZmc+GUW8GgSmcREDunMM+Dt/GrzchfN8tkwHizc5RP4Ok/MXFFy5rIjJjzhndFScTceq5e6GvVQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="shortcut icon" href="youtube.png" type="image/x-icon">
+    <title>Vincent - Youtube</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: white;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: gray ;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgb(79, 77, 77);
+        }
+
+        body {
+            font-family: 'Poppins';
+        }
+
+        body, html {
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        .video-list {
+            height: 520px;
+            overflow-y: auto;
+        }
+
+        .vid video {
+            width: 100px;
+        }
+
+        .vid {
+            cursor: pointer;
+        }
+
+        .video-list .vid .video-title {
+            font-size: 14px;
+        }
+
+        .video-list .vid:hover {
+            background-color: beige;
+        }
+
+        .video-list .vid:hover .video-title {
+            color: black !important;
+        }
+
+        .video-list .vid.active {
+            background-color: white !important;
+        }
+
+        .video-list .vid.active .video-title {
+            color: black !important;
+        }
+
+        .goback-btn {
+            cursor: pointer;
+        }
+
+        .profile img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .middle-line {
+            width: 2px;
+            height: 1.5rem;
+            background-color: #fffffe;
+        }
+
+        .channel-name {
+            font-size: 16px;
+        }
+
+        .channel-class {
+            font-size: 12px;
+        }
+
+        .left {
+            font-size: 14px;
+        }
+
+        .video-info {
+            display: flex;
+            flex-direction: column;
+            row-gap: 20px;
+        }
+
+        @media only screen and (max-width: 400px) {
+            .left, .subs-btn a {
+                font-size: 9px !important;
+            }
+            .middle-line {
+                height: 0.8rem;
+            }
+            .like-N-dislike, .share, .download, .other {
+                padding-left: 12px !important;
+                padding-right: 12px !important;
+            }
+            .video-info {
+                row-gap: 1px;
+            }
+        }
+
+        @media only screen and (max-width: 600px) {
+            .video-info {
+                flex-direction: column-reverse;
+            }
+            .bottom p {
+                padding: 0px !important;
+                background-color: black !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-black vh-100">
+    <div class="goback-btn mt-4 ms-3 mb-4">
+        <i class="fas fa-arrow-left fs-2 text-light" onclick="goBack()"></i>
+    </div>
+
+    <div class="container d-flex justify-content-center align-items-center">
+        <div class="main-video row gx-3 gy-4">
+            <div class="video col-xl-8 col-lg-12 col-md-12">
+                <video src="highlight1.mp4" controls muted autoplay class="w-100 pb-2 rounded-4"></video>
+                <h3 class="text-light video-title fs-5">Highlight in Palatiw League</h3>
+                <div class="video-info">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-12 mt-3">
+                            <div class="right d-flex justify-content-between">
+                                <div class="profile-info d-flex gap-3">
+                                    <div class="profile">
+                                        <img src="asdhasjdas.jpg" class="rounded-5" alt="" srcset="">
+                                    </div>
+                                    <div class="channel-info d-flex flex-column">
+                                        <div class="d-flex gap-1">
+                                            <p class="channel-name text-light m-0">Singk3t Official</p>
+                                            <div class="d-flex justify-content-center align-items-center rounded-5">
+                                                <i class="fas fa-check text-light bg-dark p-1 rounded-5" style="font-size: 10px;"></i>
+                                            </div>
+                                        </div>
+                                        <p class="channel-class text-light m-0">12M subscribers</p>
+                                    </div>
+                                </div>
+                                <div class="subs-btn d-flex justify-content-center align-items-center">
+                                    <a href="" class="text-decoration-none bg-white ps-3 pe-3 pt-2 pb-2 text-black rounded-5" style="font-size: 14px;">Subscribe</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-12 d-flex justify-content-center align-items-center mt-3">
+                            <div class="left text-light d-flex w-100 justify-content-between align-items-center">
+                                <div class="like-N-dislike d-flex gap-2 justify-content-center align-items-center bg-dark ps-3 pe-3 pt-2 pb-2 rounded-5">
+                                    <div class="like d-flex gap-1">
+                                        <i class="fas fa-thumbs-up d-flex justify-content-between align-items-center"></i>
+                                        <div>147K</div>
+                                    </div>
+                                    <div class="middle-line"></div>
+                                    <i class="fas fa-thumbs-down d-flex justify-content-between align-items-center"></i>
+                                </div>
+                                <div class="share d-flex gap-2 justify-content-center align-items-center ps-3 pe-3 pt-2 pb-2 bg-dark rounded-5">
+                                    <i class="fas fa-share d-flex justify-content-between align-items-center"></i>
+                                    <p class="m-0">Share</p>
+                                </div>
+                                <div class="download d-flex gap-2 justify-content-center align-items-center rounded-5 ps-3 pe-3 pt-2 pb-2 bg-dark">
+                                    <i class="fas fa-download d-flex justify-content-between align-items-center"></i>
+                                    <p class="m-0">Download</p>
+                                </div>
+                                <div class="other d-flex justify-content-center align-items-center p-2 rounded-5 bg-dark">
+                                    <i class="fa-solid fa-ellipsis"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottom">
+                        <p class="text-light p-2 m-0 bg-dark rounded" style="font-size: 14px;">5,565,900 views Oct 29 #1 on Trending</p>
+                    </div>
+                </div>
+                <div class="comments mt-3 d-flex gap-2 bg-dark ps-3 pe-3 pt-2 pb-2 rounded-3 flex-column">
+                    <p class="text-light m-0">Comments 2.8k</p>
+                    <div class="comment d-flex gap-1">
+                        <img src="erpat.jpg" style="width: 30px;" class="rounded-5">
+                        <p class="text-light m-0 d-flex justify-content-center align-items-center" style="font-size: 14px;">Ang galing mo nak..</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-12 col-md-12 video-list">
+                <div class="header">
+                    <h2 class="text-light text-center">My Best Highlights</h2>
+                    <p id="highlight-count" class="text-light text-center">Singk3t. - 1/6</p>
+                </div>
+                <div class="vid active d-flex align-items-center gap-2 m-1 p-1 ">
+                    <video src="highlight1.mp4" muted></video>
+                    <h3 class="video-title text-light m-0">Highlight in Palatiw Court (League)</h3>
+                </div>
+                <div class="vid d-flex align-items-center gap-2 m-1 p-1">
+                    <video src="highlight2.mp4" muted></video>
+                    <h3 class="video-title text-light m-0">Highlight in San Miguel Court (Schedule)</h3>
+                </div>
+                <div class="vid d-flex align-items-center gap-2 m-1 p-1">
+                    <video src="highlight3.mp4" muted></video>
+                    <h3 class="video-title text-light m-0">Highlight in La Consolacion University Philippines (Schedule)</h3>
+                </div>
+                <div class="vid d-flex align-items-center gap-2 m-1 p-1">
+                    <video src="highlight4.mp4" muted></video>
+                    <h3 class="video-title text-light m-0">Highlight in La Consolacion University Philippines (Schedule)</h3>
+                </div>
+                <div class="vid d-flex align-items-center gap-2 m-1 p-1">
+                    <video src="highlight5.mp4" muted></video>
+                    <h3 class="video-title text-light m-0">Highlight in La Consolacion University Philippines (Schedule)</h3>
+                </div>
+                <div class="vid d-flex align-items-center gap-2 m-1 p-1">
+                    <video src="highlight6.mp4" muted></video>
+                    <h3 class="video-title text-light m-0">Highlight in La Consolacion University Philippines (Schedule)</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let listVideo = document.querySelectorAll('.video-list .vid');
+        let mainVideo = document.querySelector('.main-video video');
+        let title = document.querySelector('.main-video .video-title');
+        let highlightCount = document.getElementById('highlight-count');
+
+        listVideo.forEach((video, index) => {
+            video.onclick = () => {
+                listVideo.forEach(vid => vid.classList.remove('active'));
+                video.classList.add('active');
+                if(video.classList.contains('active')) {
+                    let src = video.children[0].getAttribute('src');
+                    mainVideo.src = src;
+                    let text = video.children[1].innerHTML;
+                    title.innerHTML = text;
+                    // Update the highlight count
+                    highlightCount.innerHTML = `Singk3t. - ${index + 1}/6`;
+                }
+            }
+        });
+    </script>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>
